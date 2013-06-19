@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script type="text/javascript" src="alh.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<script>
+			var coor = new ALHWeb("/communicator", 9501);
+			coor.get("hello", [], function(response) {
+				document.getElementById("output").innerHTML += ab2str(response) + "\n";
+
+				node = new ALHProxy(coor, 40);
+				node.get("hello", [], function(response) {
+					document.getElementById("output").innerHTML += ab2str(response) + "\n";
+				});
+			});
+		</script>
+		<pre id="output"></pre>
+	</body>
+</html>
